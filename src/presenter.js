@@ -1,4 +1,4 @@
-//import sumar from "./sumador";
+import Gastos from "./gastos";
 
 const fecha = document.querySelector("#fecha");
 const monto = document.querySelector("#monto");
@@ -14,18 +14,24 @@ form.addEventListener("submit", (event) => {
   const montoValue = Number.parseInt(monto.value);
   const descripcionValue = descripcion.value;
 
-  //const gastos = new Gastos();
-  //gastos.registrargasto(fecha, monto, descripcion);
-  //const gastoregistrado = gastos.obtenerGastos(();
+  const gastos = new Gastos();
+  const gasto = {
+    fecha: fechaValue,
+    monto: montoValue,
+    descripcion: descripcionValue,
+  };
+  gastos.registrarGasto(gasto);
+  
+  const gastoregistrado = gastos.obtenerGastos();
 
-  gastosdiv.innerHTML =
+  gastosdiv.innerHTML = 
     "<div>" +
-    fechaValue +
+    gastoregistrado.fecha +
     "</div>" +
     "<div>" +
-    montoValue +
+    gastoregistrado.monto +
     "</div>" +
     "<div>" +
-    descripcionValue +
+    gastoregistrado.descripcion +
     "</div>";
 });
